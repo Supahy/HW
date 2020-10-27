@@ -1,3 +1,5 @@
+package WordSplit;
+
 public class WordSplitApp3 {
     public static void main(String[] args) {
 

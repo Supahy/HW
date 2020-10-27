@@ -1,3 +1,5 @@
+package TapeDeck;
+
 public class TapeDeck {
 
     boolean canRecord = true;

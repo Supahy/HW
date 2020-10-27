@@ -1,3 +1,5 @@
+package DrumKit;
+
 public class DrumKit {
     boolean topHat = true;
     boolean snare = true;

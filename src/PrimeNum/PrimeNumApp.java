@@ -1,7 +1,9 @@
+package PrimeNum;
+
 public class PrimeNumApp {
     public static void main(String[] args) {
         int a;
-        int num = 1;
+        int num = 2;
         int count;
 
         while (num <= 100) {

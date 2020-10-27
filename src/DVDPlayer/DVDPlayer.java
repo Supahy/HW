@@ -1,3 +1,5 @@
+package DVDPlayer;
+
 public class DVDPlayer {
     boolean canRecord = false;
     void recordDVD() {

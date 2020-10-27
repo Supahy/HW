@@ -1,3 +1,5 @@
+package PassVer;
+
 import java.util.Scanner;
 
 public class PassVer {

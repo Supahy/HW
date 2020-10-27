@@ -1,3 +1,5 @@
+package SumNum;
+
 public class SumNumAppDouble {
     public static void main(String[] args) {
 

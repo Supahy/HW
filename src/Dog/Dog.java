@@ -1,3 +1,5 @@
+package Dog;
+
 public class Dog {
     int size;
     String breed;

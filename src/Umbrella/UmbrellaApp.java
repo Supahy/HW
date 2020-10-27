@@ -1,3 +1,5 @@
+package Umbrella;
+
 import java.util.Scanner;
 
 public class UmbrellaApp {

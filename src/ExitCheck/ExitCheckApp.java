@@ -1,3 +1,5 @@
+package ExitCheck;
+
 import java.util.Scanner;
 
 public class ExitCheckApp {

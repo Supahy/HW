@@ -1,3 +1,5 @@
+package AutopilotApp;
+
 import java.util.Scanner;
 
 public class AutopilotApp {
