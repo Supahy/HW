@@ -45,11 +45,17 @@ public class Car {
             fuelRem =
                     fuelRem - ((engine.getCapacity() / 100.0) / 100.0) * km;
             System.out.printf("Car " + name + " has been driven for " + km + " km with speed " + speed + "km/h. Remaining fuel: %.1f.%n", fuelRem);
+            //checking if we have enough fuel for ride
+            // finding out how much fuel we need for 1 km and multiplying it for needed to drive km
+            // subtracting used fuel for needed km and putting value to variable
+
 
         } else if ((fuelRem <= ((engine.getCapacity() / 100.0) / 100.0) * km) && (engine.isStarted()) && (isFueled)) {
             System.out.printf("Car " + name + " has been driven for %.1f km with speed " + speed + "km/h. Tank is empty%n", fuelRem*5);
             fuelRem = fuelRem - fuelRem;
             isFueled = false;
+            //if we need more fuel than we have we finding out how much fuel we need for 1 km and checking
+            //much we can drive with that
         } else if (!engine.isStarted()) {
             System.out.println("You cant go without started engine");
         } else if (!isFueled){
@@ -62,6 +68,8 @@ public class Car {
             fuelRem = tankCap;
             isFueled = true;
             System.out.println("Car " + name + " has been tanked up");
+        } else {
+            System.out.println("Car " + name + " is already full");
         }
         }
 
