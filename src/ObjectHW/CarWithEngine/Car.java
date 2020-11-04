@@ -37,8 +37,8 @@ public class Car {
 
 
     public void drive(int speed, double km) {
-        if (speed > engine.getHorsepower()*2){
-            speed = engine.getHorsepower()*2;
+        if (speed > engine.getHorsepower() * 2) {
+            speed = engine.getHorsepower() * 2;
         }
 
         if ((fuelRem >= ((engine.getCapacity() / 100.0) / 100.0) * km) && (engine.isStarted()) && (isFueled)) {
@@ -51,33 +51,26 @@ public class Car {
 
 
         } else if ((fuelRem <= ((engine.getCapacity() / 100.0) / 100.0) * km) && (engine.isStarted()) && (isFueled)) {
-            System.out.printf("Car " + name + " has been driven for %.1f km with speed " + speed + "km/h. Tank is empty%n", fuelRem*5);
+            System.out.printf("Car " + name + " has been driven for %.1f km with speed " + speed + "km/h. Tank is empty%n", fuelRem * 5);
             fuelRem = fuelRem - fuelRem;
             isFueled = false;
             //if we need more fuel than we have we finding out how much fuel we need for 1 km and checking
             //much we can drive with that
         } else if (!engine.isStarted()) {
             System.out.println("You cant go without started engine");
-        } else if (!isFueled){
+        } else if (!isFueled) {
             System.out.println("You cant go without fuel");
 
         }
     }
-        public void tank(){
-        if (fuelRem != tankCap){
+
+    public void tank() {
+        if (fuelRem != tankCap) {
             fuelRem = tankCap;
             isFueled = true;
             System.out.println("Car " + name + " has been tanked up");
         } else {
             System.out.println("Car " + name + " is already full");
         }
-        }
-
-        public String getName () {
-            return name;
-        }
-
-        public void setName (String name){
-            this.name = name;
-        }
     }
+}
