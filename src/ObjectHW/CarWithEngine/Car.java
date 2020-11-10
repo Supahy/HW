@@ -4,30 +4,42 @@ public class Car {
     private String name;
     private int tankCap;
     private double fuelRem;
-    private boolean isFueled = true;
+    private boolean Fueled = true;
+    private Engine engine;
 
-    Engine engine = new Engine("Diesel", 200, 2000);
+
 
     public Car(String name, Engine engine, int tankCap) {
         this.name = name;
         this.tankCap = tankCap;
         this.fuelRem = tankCap;
+        this.engine = engine;
     }
 
-
-    public void startEngine() {
-        if (!engine.isStarted()) {
-            engine.setStarted(true);
-            System.out.println("Car " + name + " is starting " + engine.getName() + " engine");
-            System.out.println(engine.getName() + " engine has been started");
+    public void startEngine2() {
+            engine.start();
+            if(!engine.isStarted()){
+                System.out.println("Car " + name + " is starting " + engine.getName() + " engine");
+                System.out.println(engine.getName() + " engine has been started");
         } else {
-            System.out.println(engine.getName() + " engine has been started already in " + name);
-        }
+                System.out.println(engine.getName() + " engine has been started already in " + name);
+            }
     }
+
+
+ //   public void startEngine() {
+ //       if (!engine.isStarted()) {
+ //           engine.start();
+ //           System.out.println("Car " + name + " is starting " + engine.getName() + " engine");
+ //           System.out.println(engine.getName() + " engine has been started");
+ //       } else {
+ //           System.out.println(engine.getName() + " engine has been started already in " + name);
+ //       }
+ //   }
 
     public void stopEngine() {
         if (engine.isStarted()) {
-            engine.setStarted(false);
+            engine.stop();
             System.out.println("Car " + name + " is stopping " + engine.getName() + " engine");
             System.out.println(engine.getName() + " engine has been stopped");
         } else {
@@ -41,7 +53,7 @@ public class Car {
             speed = engine.getHorsepower() * 2;
         }
 
-        if ((fuelRem >= ((engine.getCapacity() / 100.0) / 100.0) * km) && (engine.isStarted()) && (isFueled)) {
+        if ((fuelRem >= ((engine.getCapacity() / 100.0) / 100.0) * km) && (engine.isStarted()) && (Fueled)) {
             fuelRem =
                     fuelRem - ((engine.getCapacity() / 100.0) / 100.0) * km;
             System.out.printf("Car " + name + " has been driven for " + km + " km with speed " + speed + "km/h. Remaining fuel: %.1f.%n", fuelRem);
@@ -50,15 +62,15 @@ public class Car {
             // subtracting used fuel for needed km and putting value to variable
 
 
-        } else if ((fuelRem <= ((engine.getCapacity() / 100.0) / 100.0) * km) && (engine.isStarted()) && (isFueled)) {
+        } else if ((fuelRem <= ((engine.getCapacity() / 100.0) / 100.0) * km) && (engine.isStarted()) && (Fueled)) {
             System.out.printf("Car " + name + " has been driven for %.1f km with speed " + speed + "km/h. Tank is empty%n", fuelRem * 5);
             fuelRem = fuelRem - fuelRem;
-            isFueled = false;
+            Fueled = false;
             //if we need more fuel than we have we finding out how much fuel we need for 1 km and checking
             //much we can drive with that
         } else if (!engine.isStarted()) {
             System.out.println("You cant go without started engine");
-        } else if (!isFueled) {
+        } else if (!Fueled) {
             System.out.println("You cant go without fuel");
 
         }
@@ -67,10 +79,26 @@ public class Car {
     public void tank() {
         if (fuelRem != tankCap) {
             fuelRem = tankCap;
-            isFueled = true;
+            Fueled = true;
             System.out.println("Car " + name + " has been tanked up");
         } else {
             System.out.println("Car " + name + " is already full");
         }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public boolean isFueled() {
+        return Fueled;
+    }
+
+    public void setFueled(boolean fueled) {
+        Fueled = fueled;
     }
 }

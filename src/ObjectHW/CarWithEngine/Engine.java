@@ -4,7 +4,7 @@ public class Engine {
     private String name;
     private int horsepower;
     private int capacity;
-    private boolean isStarted;
+    private boolean started = false;
 
     public Engine(String name, int horsepower, int capacity) {
         this.name = name;
@@ -13,8 +13,18 @@ public class Engine {
     }
 
 
+    public void start() {
+        if (!started) {
+            started = true;
+        }
+    }
+
+        public void stop(){
+        started = false;
+        }
+
     public boolean isStarted() {
-        return isStarted;
+        return started;
     }
 
     public String getName() {
@@ -22,8 +32,8 @@ public class Engine {
     }
 
 
-    public void setStarted(boolean isStarted) {
-        this.isStarted = isStarted;
+    public void setStarted(boolean Started) {
+        this.started = Started;
     }
 
     public int getCapacity() {

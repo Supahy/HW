@@ -4,10 +4,10 @@ public class CarWithEngineTester {
     public static void main(String[] args) {
         Engine Diesel = new Engine("Diesel", 200, 2000);
         Car Toyota = new Car("Toyota Camry", Diesel, 50);
-        Toyota.startEngine();
-        Toyota.startEngine();
+        Toyota.startEngine2();
+        Toyota.startEngine2();
         Toyota.stopEngine();
-        Toyota.startEngine();
+        Toyota.startEngine2();
         Toyota.drive(100, 32.6);
         Toyota.drive(70, 45.3);
         Toyota.drive(600, 122);
