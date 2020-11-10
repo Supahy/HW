@@ -3,26 +3,26 @@ package TheLongestShortestWord;
 public class WordLength {
     public static void main(String[] args) {
 
-        String longIndex = null;
+        String longest = null;
         int lng = 0;
         for (int i = 0; i < args.length; i++) {
             if(args[i].length() > lng){
                 lng = args[i].length();
-                longIndex = args[i];
+                longest = args[i];
             }
         }
 
-        System.out.println(longIndex);
+        System.out.println(longest);
 
-        int shrt = longIndex.length();
-        String shortIndex = null;
+        int shrt = longest.length();
+        String shortest = null;
 
         for (int i = 0; i < args.length; i++) {
             if(args[i].length() < shrt){
                 shrt = args[i].length();
-                shortIndex = args[i];
+                shortest = args[i];
             }
-            if(args[i].length() == shortIndex.length()){
+            if(args[i].length() == shortest.length()){
                 System.out.print(args[i] + " ");
             }
 
