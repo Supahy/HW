@@ -14,7 +14,7 @@ public class WordLength {
 
         System.out.println(longIndex);
 
-        int shrt = 99999999;
+        int shrt = longIndex.length();
         String shortIndex = null;
 
         for (int i = 0; i < args.length; i++) {

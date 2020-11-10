@@ -23,5 +23,5 @@ public class PolymorphismDemo {
         scooter.drive();
         train.drive();
         tram.drive();
+        }
     }
-}
