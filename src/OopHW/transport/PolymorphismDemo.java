@@ -13,15 +13,11 @@ public class PolymorphismDemo {
         Train train = new Train();
         Tram tram = new Tram();
 
-        transport.drive();
-        publicTransport.drive();
-        airplane.drive();
-        bicycle.drive();
-        bus.drive();
-        car.drive();
-        motorbike.drive();
-        scooter.drive();
-        train.drive();
-        tram.drive();
+        Transport transports [] = {transport, publicTransport, airplane, bicycle, bus, car, motorbike, scooter, train, tram};
+
+        for (int i = 0; i < transports.length; i++) {
+            transports[i].drive();
+        }
+
         }
     }
