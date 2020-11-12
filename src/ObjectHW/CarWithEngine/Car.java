@@ -17,11 +17,10 @@ public class Car {
     }
 
     public void startEngine2() {
-            engine.start();
-            if(!engine.isStarted()){
-                System.out.println("Car " + name + " is starting " + engine.getName() + " engine");
-                System.out.println(engine.getName() + " engine has been started");
-        } else {
+            if(engine.start(false)){
+                System.out.println("Car " + name + " is starting " + engine.getName()+ " engine");
+                System.out.println(name + " engine has been started");
+            } else {
                 System.out.println(engine.getName() + " engine has been started already in " + name);
             }
     }
@@ -37,15 +36,23 @@ public class Car {
  //       }
  //   }
 
-    public void stopEngine() {
-        if (engine.isStarted()) {
-            engine.stop();
+    public void stopEngine2(){
+        if(engine.stop(false)){
             System.out.println("Car " + name + " is stopping " + engine.getName() + " engine");
-            System.out.println(engine.getName() + " engine has been stopped");
+           System.out.println(engine.getName() + " engine has been stopped");
         } else {
             System.out.println(engine.getName() + " engine has been stopped already in " + name);
         }
     }
+
+//   public void stopEngine() {
+//       if (engine.isStarted()) {
+//           System.out.println("Car " + name + " is stopping " + engine.getName() + " engine");
+//           System.out.println(engine.getName() + " engine has been stopped");
+//       } else {
+//           System.out.println(engine.getName() + " engine has been stopped already in " + name);
+//       }
+//   }
 
 
     public void drive(int speed, double km) {

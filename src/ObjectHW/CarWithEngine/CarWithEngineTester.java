@@ -6,7 +6,8 @@ public class CarWithEngineTester {
         Car Toyota = new Car("Toyota Camry", Diesel, 50);
         Toyota.startEngine2();
         Toyota.startEngine2();
-        Toyota.stopEngine();
+        Toyota.stopEngine2();
+        Toyota.stopEngine2();
         Toyota.startEngine2();
         Toyota.drive(100, 32.6);
         Toyota.drive(70, 45.3);
