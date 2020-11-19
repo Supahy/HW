@@ -2,45 +2,30 @@ package OopHW;
 import java.time.LocalDate;
 
 public class Person {
-    private String FirstName;
-    private String LastName;
-    private LocalDate BirthDate;
+    private String firstName;
+    private String lastName;
+    private LocalDate birthDate;
 
-    public Person(){
-
-    }
 
     public Person(String FirstName, String LastName, LocalDate BirthDate){
-        this.FirstName = FirstName;
-        this.LastName = LastName;
-        this.BirthDate = BirthDate;
+        this.firstName = FirstName;
+        this.lastName = LastName;
+        this.birthDate = BirthDate;
     }
 
     public String getFirstName() {
-        return FirstName;
+        return firstName;
     }
 
     public String getLastName(){
-        return LastName;
+        return lastName;
     }
 
     public LocalDate getBirthDate(){
-        return BirthDate;
-    }
-
-    public void setFirstName(String firstName) {
-        FirstName = firstName;
-    }
-
-    public void setLastName(String lastName) {
-        LastName = lastName;
-    }
-
-    public void setBirthDate(LocalDate birthDate) {
-        BirthDate = birthDate;
+        return birthDate;
     }
 
     public void goForAWalk(){
-        System.out.println(FirstName + " is going for a walk");
+        System.out.println(firstName + " is going for a walk");
     }
 }

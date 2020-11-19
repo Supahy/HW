@@ -14,7 +14,7 @@ public class Engine {
     }
 
 
-    public boolean start(boolean startd) {
+    public boolean start() {
         if(!started){
             started = true;
             return true;
@@ -23,7 +23,7 @@ public class Engine {
         }
     }
 
-        public boolean stop(boolean stoppd) {
+        public boolean stop() {
             if (started) {
                 started = false;
                 return true;
@@ -38,11 +38,6 @@ public class Engine {
 
     public String getName() {
         return name;
-    }
-
-
-    public void setStarted(boolean Started) {
-        this.started = Started;
     }
 
     public int getCapacity() {

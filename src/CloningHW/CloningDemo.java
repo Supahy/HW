@@ -12,7 +12,7 @@ public class CloningDemo {
 
         System.out.println(clonedLaptop.toString());
 
-        Laptop anotherLaptop = Laptop.CreateCopy(MSI);
+        Laptop anotherLaptop = Laptop.copyLaptop(MSI);
 
         System.out.println(anotherLaptop.toString());
         System.out.println(MSI.getProcessor() + " " + MSI.getHardDrive());

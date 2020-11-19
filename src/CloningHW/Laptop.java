@@ -28,8 +28,11 @@ public class Laptop implements Cloneable {
 
     }
 
-    public static Laptop CreateCopy(Laptop laptop){
-        return new Laptop(laptop.name, laptop.processor, laptop.hardDrive, laptop.displaySize, laptop.weight, laptop.ram);
+    public static Laptop copyLaptop(Laptop laptop){
+        Laptop copyLaptop = new Laptop(laptop.name, laptop.processor, laptop.hardDrive, laptop.displaySize, laptop.weight, laptop.ram);
+        HardDrive copyDrive = new HardDrive(laptop.hardDrive.getName(), laptop.hardDrive.getType(), laptop.hardDrive.getCapacity());
+        Processor copyProcessor = new Processor(laptop.processor.getName(), laptop.processor.getFrequency(), laptop.processor.getNumOfCores());
+        return copyLaptop;
     }
 
     public Processor getProcessor() {

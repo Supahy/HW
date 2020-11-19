@@ -10,7 +10,7 @@ public class Student extends Person {
 
 
     public Student(String Faculty, int GraduateYear, Person person){
-        super();
+        super(person.getFirstName(), person.getLastName(), person.getBirthDate());
         this.faculty = Faculty;
         this.graduateYear = GraduateYear;
         this.person = person;

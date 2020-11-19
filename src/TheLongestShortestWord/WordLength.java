@@ -22,10 +22,11 @@ public class WordLength {
                 shrt = args[i].length();
                 shortest = args[i];
             }
-            if(args[i].length() == shortest.length()){
-                System.out.print(args[i] + " ");
-            }
+           // if(args[i].length() == shortest.length()){
+           //     System.out.print(args[i] + " ");
+           // }
 
         }
+        System.out.println(shortest);
     }
 }

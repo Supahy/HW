@@ -10,4 +10,16 @@ public class HardDrive {
         this.type = type;
         this.capacity = capacity;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
 }

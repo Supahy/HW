@@ -11,4 +11,16 @@ public class Processor {
         this.frequency = frequency;
         this.numOfCores = numOfCores;
     }
+
+    public String getName(){
+        return name;
+    }
+
+    public double getFrequency(){
+        return frequency;
+    }
+
+    public int getNumOfCores(){
+        return numOfCores;
+    }
 }

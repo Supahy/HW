@@ -16,8 +16,8 @@ public class Car {
         this.engine = engine;
     }
 
-    public void startEngine2() {
-            if(engine.start(false)){
+    public void startEngine() {
+            if(engine.start()){
                 System.out.println("Car " + name + " is starting " + engine.getName()+ " engine");
                 System.out.println(name + " engine has been started");
             } else {
@@ -25,35 +25,14 @@ public class Car {
             }
     }
 
-
- //   public void startEngine() {
- //       if (!engine.isStarted()) {
- //           engine.start();
- //           System.out.println("Car " + name + " is starting " + engine.getName() + " engine");
- //           System.out.println(engine.getName() + " engine has been started");
- //       } else {
- //           System.out.println(engine.getName() + " engine has been started already in " + name);
- //       }
- //   }
-
-    public void stopEngine2(){
-        if(engine.stop(false)){
+    public void stopEngine(){
+        if(engine.stop()){
             System.out.println("Car " + name + " is stopping " + engine.getName() + " engine");
            System.out.println(engine.getName() + " engine has been stopped");
         } else {
             System.out.println(engine.getName() + " engine has been stopped already in " + name);
         }
     }
-
-//   public void stopEngine() {
-//       if (engine.isStarted()) {
-//           System.out.println("Car " + name + " is stopping " + engine.getName() + " engine");
-//           System.out.println(engine.getName() + " engine has been stopped");
-//       } else {
-//           System.out.println(engine.getName() + " engine has been stopped already in " + name);
-//       }
-//   }
-
 
     public void drive(int speed, double km) {
         if (speed > engine.getHorsepower() * 2) {
