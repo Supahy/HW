@@ -1,6 +1,6 @@
 package CloningHW;
 
-public class HardDrive {
+public class HardDrive implements Cloneable {
     private String name;
     private String type;
     private int capacity;

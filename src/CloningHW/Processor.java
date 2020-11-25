@@ -1,6 +1,6 @@
 package CloningHW;
 
-public class Processor {
+public class Processor implements Cloneable {
 
     private String name;
     private double frequency;

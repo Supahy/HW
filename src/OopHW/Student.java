@@ -5,7 +5,6 @@ import java.time.LocalDate;
 public class Student extends Person {
     private String faculty;
     private int graduateYear;
-    private Person person;
 
 
 
@@ -13,7 +12,6 @@ public class Student extends Person {
         super(person.getFirstName(), person.getLastName(), person.getBirthDate());
         this.faculty = Faculty;
         this.graduateYear = GraduateYear;
-        this.person = person;
 
 
     }
@@ -37,6 +35,6 @@ public class Student extends Person {
 
     @Override
     public void goForAWalk(){
-        System.out.println(person.getFirstName() + " had 3 lessons on " + faculty + " and going for a walk");
+        System.out.println(getFirstName() + " had 3 lessons on " + faculty + " and going for a walk");
     }
 }
