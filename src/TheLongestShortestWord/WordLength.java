@@ -12,9 +12,6 @@ public class WordLength {
                 lng = args[i].length();
                 longest = args[i];
             }
-            if(args[i].length() == longest.length()){
-                System.out.print(args[i] + " ");
-            }
         }
 
         System.out.println(longest);
@@ -27,11 +24,8 @@ public class WordLength {
                 shrt = args[i].length();
                 shortest = args[i];
             }
-            if(args[i].length() == shortest.length()){
-                System.out.print(args[i] + " ");
-            }
 
         }
-        //System.out.println(shortest);
+        System.out.println(shortest);
     }
 }
