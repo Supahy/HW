@@ -33,9 +33,6 @@ public class Bank {
         for (String s : accounts.keySet()) {
             getAccByNumber(s).applyPercents();
         }
-        TransactionLog
-                log = new TransactionLog(LocalDateTime.now(), "Recalculating percents", "Percents has been recalculated for " + name);
-        TransactionLog.logs.put(LocalDateTime.now(), log);
 
     }
 
@@ -57,7 +54,7 @@ public class Bank {
             System.out.println("Updated reciever account balance: " + getAccByNumber(toAccountNum).getBalance());
 
         TransactionLog log = new TransactionLog(LocalDateTime.now(), "Money transfer", "Money has been sent from " + fromAccountNum + " to " + toAccountNum + ". Transaction amount: " + amount);
-        TransactionLog.logs.put(LocalDateTime.now(), log);
+        getAccByNumber(fromAccountNum).logs.put(LocalDateTime.now(), log);
        }
 
     public void applyPercentsOnAcc(String accountNum){
@@ -80,8 +77,6 @@ public class Bank {
 
     public Account getAccByNumber(String accountNum){
         if(accounts.get(accountNum) == null){
-            TransactionLog log = new TransactionLog(LocalDateTime.now(), "Exception", "Incorrect accounts exception has been thrown on " + name);
-            TransactionLog.logs.put(LocalDateTime.now(), log);
             throw new AccountNotFoundException("Incorrect account!");
         } else {
             return accounts.get(accountNum);

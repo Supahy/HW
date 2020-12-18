@@ -22,12 +22,12 @@ public class DebitAccount extends Account {
     public BigDecimal withdraw(BigDecimal amount) {
         if (getBalance().subtract(amount).compareTo(amount) < 0) {
             TransactionLog log = new TransactionLog(LocalDateTime.now(), "Exception", "NonSufficientFunds exception thrown on " + getNumber());
-            TransactionLog.logs.put(LocalDateTime.now(), log);
+            logs.put(LocalDateTime.now(), log);
             throw new NonSufficientFundsException("Non sufficient funds! Your current balance is: " + getBalance());
         } else {
             setBalance(getBalance().subtract(amount));
             TransactionLog log = new TransactionLog(LocalDateTime.now(), "Withdraw", "Account " + getNumber() + " withdrawn. Balance before: " + (getBalance().add(amount)) + " Updated balance: " + getBalance());
-            TransactionLog.logs.put(LocalDateTime.now(), log);
+            logs.put(LocalDateTime.now(), log);
             return getBalance();
         }
     }

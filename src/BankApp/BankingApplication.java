@@ -61,7 +61,7 @@ public class BankingApplication {
 
         System.out.println("================");
 
-        System.out.println(TransactionLog.logs);
+        System.out.println(NationalBank.getByName("Pekao").getAccByNumber("34 1111 1111 2222").logs);
 
 
 

@@ -4,11 +4,14 @@ import BankApp.TransactionLog;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.TreeMap;
 
 public abstract class Account {
     private String number;
     private BigDecimal balance;
     private BigDecimal percents = BigDecimal.valueOf(1);
+    public TreeMap<LocalDateTime, TransactionLog>
+            logs = new TreeMap<>();
 
     public Account(String number){
         this.number = number;
@@ -36,7 +39,7 @@ public abstract class Account {
         System.out.println("Percents has been applied on " + getNumber() + ". Current balance: " + getBalance());
 
         TransactionLog log = new TransactionLog(LocalDateTime.now(), "Percents applying", "Percents has been applied on " + getNumber() + ". Current balance: " + getBalance());
-        TransactionLog.logs.put(LocalDateTime.now(), log);
+        logs.put(LocalDateTime.now(), log);
     }
 
     public BigDecimal getPercents() {
@@ -46,7 +49,7 @@ public abstract class Account {
      void setPercents(BigDecimal percents) {
         this.percents = percents;
          TransactionLog log = new TransactionLog(LocalDateTime.now(), "Percentage set", "Percents has been set on " + getNumber() + ". Current balance: " + getBalance());
-         TransactionLog.logs.put(LocalDateTime.now(), log);
+         logs.put(LocalDateTime.now(), log);
     }
 
     public BigDecimal getBalance() {

@@ -14,7 +14,7 @@ public class TransactionLog {
         this.massage = massage;
     }
 
-    public static TreeMap<LocalDateTime, TransactionLog> logs = new TreeMap<>();
+
 
     public LocalDateTime getDateTime() {
         return dateTime;
