@@ -24,8 +24,11 @@ public class LambdaTester {
         System.out.println(convertStringToInt(text2, String::length));
 
         String text3 = "We have to count words of this text";
+        String splitted;
 
-        //System.out.println(convertStringToInt(text3, String.valueOf(text3.split(" ")) ->  ));
+        //System.out.println(convertStringToInt(text3, String.valueOf(text3.split(" ")) :: length));
+
+        //convertStringToInt(text3, Array.getLength(String.valueOf(text3.split(" "))) ->
 
         //System.out.println(convertStringToInt(String.valueOf(text3.split(" ")), ));
 
@@ -36,8 +39,8 @@ public class LambdaTester {
 
     }
 
-    public static Integer convertStringToInt(String text, Function<String, Integer> function){
-        return function.apply(text);
+    public static Integer convertStringToInt(String string, Function<String, Integer> function){
+        return function.apply(string);
 
     }
 }

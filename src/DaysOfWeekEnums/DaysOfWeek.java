@@ -32,7 +32,7 @@ public enum DaysOfWeek {
     }
 
     public boolean isWeekend() {
-        return workingDay == false;
+        return !workingDay;
     }
 
     public static DaysOfWeek getWeekends() {
