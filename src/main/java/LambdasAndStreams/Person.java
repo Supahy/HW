@@ -102,15 +102,13 @@ public class Person {
                 "} \n";
     }
 
-    public static Optional<String> generateUsername(Person p) {
-        String userName;
-        if (p.getBirthDate() == null) {
-            userName =
-                    p.getFirstName().substring(0, 1).toLowerCase() + p.getLastName().toLowerCase() + Year.now();
-        } else {
-            userName =
-                    p.getFirstName().substring(0, 1).toLowerCase() + p.getLastName().toLowerCase() + p.getBirthDate().getYear();
-        }
-        return Optional.of(userName);
+    public Optional<LocalDate> getBirthDateToGenerateUsername() {
+        return birthDate==null ? Optional.empty() : Optional.of(birthDate);
+    }
+
+    public static String generateUsername(Person p) {
+        return p.getBirthDateToGenerateUsername()
+                .map(birthDate -> p.getFirstName().substring(0, 1).toLowerCase() + p.getLastName().toLowerCase() + birthDate.getYear())
+                .orElseGet(() -> p.getFirstName().substring(0, 1).toLowerCase() + p.getLastName().toLowerCase() + LocalDate.now().getYear());
     }
 }

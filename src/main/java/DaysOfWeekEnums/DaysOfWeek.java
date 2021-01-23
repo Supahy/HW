@@ -1,5 +1,8 @@
 package DaysOfWeekEnums;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public enum DaysOfWeek {
     MON("Monday", "Poniedzialek", true),
     TUE("Tuesday", "Wtorek", true),
@@ -31,26 +34,28 @@ public enum DaysOfWeek {
         return workingDay;
     }
 
-    public boolean isWeekend() {
-        return !workingDay;
+    public static boolean isWeekend(DaysOfWeek day) {
+        return !day.isWorkingDay();
     }
 
-    public static DaysOfWeek getWeekends() {
-        for (DaysOfWeek day : DaysOfWeek.values()) {
-            if (day.isWeekend()) {
-                System.out.println(day);
+    public static ArrayList<DaysOfWeek> getWeekends() {
+        ArrayList<DaysOfWeek> weekends = new ArrayList<>();
+        for(DaysOfWeek day : DaysOfWeek.values()) {
+            if(isWeekend(day)) {
+                weekends.add(day);
             }
         }
-        return null;
+        return weekends;
     }
 
-    public static DaysOfWeek getWorkingDays() {
-        for (DaysOfWeek day : DaysOfWeek.values()) {
-            if (day.isWorkingDay()) {
-                System.out.println(day);
+    public static ArrayList<DaysOfWeek> getWorkingDays() {
+        ArrayList<DaysOfWeek> workingDays = new ArrayList<>();
+        for(DaysOfWeek day : DaysOfWeek.values()) {
+            if(!isWeekend(day)) {
+                workingDays.add(day);
             }
         }
-        return null;
+        return workingDays;
     }
 
     public static DaysOfWeek fromEnglishName(String name){

@@ -1,6 +1,7 @@
 package LambdasAndStreams;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
@@ -40,7 +41,7 @@ public class PersonDemo {
                 List.of(Magda, Martyna, Bartek, Krystian, Taylor, April, Wojtek, Renata, Gabriel, Andzelika);
 
         List<Person> menUnder65 = persons.stream()
-                .filter(person -> person.getBirthDate().isAfter(LocalDate.of(1955, 1, 1)))
+                .filter(person -> person.getBirthDate().isAfter(LocalDate.now().minus(65, ChronoUnit.YEARS)))
                 .filter(person -> person.getSex().equals(Sex.MALE))
                 .sorted(Comparator.comparing(Person::getFirstName))
                 .collect(Collectors.toList());
@@ -55,7 +56,7 @@ public class PersonDemo {
 
 
         List<Person> krakowKids = persons.stream()
-                .filter(person -> person.getBirthDate().isAfter(LocalDate.of(2002, 1, 1)))
+                .filter(person -> person.getBirthDate().isAfter(LocalDate.now().minus(18, ChronoUnit.YEARS)))
                 .filter(person -> person.getAdress().equals(Krakow))
                 .sorted(Comparator.comparing(Person::getLastName))
                 .collect(Collectors.toList());
@@ -76,7 +77,7 @@ public class PersonDemo {
 
         long numberOfMenAbove65 = persons.stream()
                 .filter(person -> person.getSex().equals(Sex.MALE))
-                .filter(person -> person.getBirthDate().isBefore(LocalDate.of(1955, 1, 1)))
+                .filter(person -> person.getBirthDate().isBefore(LocalDate.now().minus(65, ChronoUnit.YEARS)))
                 .count();
 
         String theOldestPerson = persons.stream()
@@ -98,9 +99,9 @@ public class PersonDemo {
         boolean allLastNamesContainA = notFromKrk.stream()
                 .allMatch(person -> person.getLastName().contains("a"));
 
-        Optional<String> MartynaUserName = Person.generateUsername(Martyna);
+        String martynaUserName = Person.generateUsername(Martyna);
 
-        System.out.println(MartynaUserName);
+        System.out.println(martynaUserName);
 
 
 

@@ -17,20 +17,27 @@ public class LambdaTester {
         String text = "Last letter of this";
         System.out.println(modifyString(text, String::toString).substring(text.length() -1, text.length()));
 
-        System.out.println("+++++++++++++++++++=");
+        System.out.println("+++++++++++++++++++");
 
         String text2 = "Convert this text to its length";
 
         System.out.println(convertStringToInt(text2, String::length));
 
         String text3 = "We have to count words of this text";
-        String splitted;
 
-        //System.out.println(convertStringToInt(text3, String.valueOf(text3.split(" ")) :: length));
+        Function<String, Integer> stringToIntFunc = str->str.split(" ").length;
 
-        //convertStringToInt(text3, Array.getLength(String.valueOf(text3.split(" "))) ->
+        System.out.println(convertStringToInt(text3, s -> text3.split(" ").length));
 
-        //System.out.println(convertStringToInt(String.valueOf(text3.split(" ")), ));
+        int wordNum = convertStringToInt(text3, s -> s.split(" ").length);
+        System.out.println("WORDNUM: " + wordNum);
+
+        StringToIntable stringToIntable = (str, calculate) -> str.split(" ").length;
+
+        stringToIntable.calcWordsNum(text3, s -> s.split(" ").length);
+
+
+
 
     }
 
@@ -39,8 +46,14 @@ public class LambdaTester {
 
     }
 
-    public static Integer convertStringToInt(String string, Function<String, Integer> function){
+    public static Integer convertStringToInt(String string, Function <String, Integer> function){
         return function.apply(string);
 
+    }
+
+
+
+    interface StringToIntable{
+        int calcWordsNum(String text, Function<String, Integer> calculate);
     }
 }
