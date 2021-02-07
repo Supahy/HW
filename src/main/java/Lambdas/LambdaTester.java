@@ -12,10 +12,12 @@ public class LambdaTester {
 
         System.out.println(modifyString("convert this to upper case", String::toUpperCase));
         System.out.println(modifyString("CONVERT THIS TO LOWER CASE", String::toLowerCase));
-        System.out.println(modifyString("First letter of this", String::new).substring(0, 1));
+
+        String converToFirstLetter = "First letter of this";
+        System.out.println(textModifier(converToFirstLetter, x -> String.valueOf(x.charAt(0))));
 
         String text = "Last letter of this";
-        System.out.println(modifyString(text, String::toString).substring(text.length() -1, text.length()));
+        System.out.println(textModifier(text, x -> String.valueOf(x.charAt(x.length() - 1))));
 
         System.out.println("+++++++++++++++++++");
 
@@ -51,9 +53,17 @@ public class LambdaTester {
 
     }
 
+    public static String textModifier(String string, StringModifier stringModifier){
+        return stringModifier.doSmth(string);
+    }
+
 
 
     interface StringToIntable{
         int calcWordsNum(String text, Function<String, Integer> calculate);
+    }
+
+    interface StringModifier{
+        String doSmth(String string);
     }
 }

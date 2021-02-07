@@ -40,8 +40,8 @@ public enum DaysOfWeek {
 
     public static ArrayList<DaysOfWeek> getWeekends() {
         ArrayList<DaysOfWeek> weekends = new ArrayList<>();
-        for(DaysOfWeek day : DaysOfWeek.values()) {
-            if(isWeekend(day)) {
+        for (DaysOfWeek day : DaysOfWeek.values()) {
+            if (isWeekend(day)) {
                 weekends.add(day);
             }
         }
@@ -49,28 +49,30 @@ public enum DaysOfWeek {
     }
 
     public static ArrayList<DaysOfWeek> getWorkingDays() {
-        ArrayList<DaysOfWeek> workingDays = new ArrayList<>();
-        for(DaysOfWeek day : DaysOfWeek.values()) {
-            if(!isWeekend(day)) {
+        ArrayList<DaysOfWeek> workingDays =
+                new ArrayList<>();
+        for (DaysOfWeek day : DaysOfWeek.values()) {
+            if (!isWeekend(day)) {
                 workingDays.add(day);
             }
         }
         return workingDays;
     }
 
-    public static DaysOfWeek fromEnglishName(String name){
-        for (DaysOfWeek day : values() ) {
-            if(name.equalsIgnoreCase(day.getEnglishName())){
-                System.out.println(day);
+    public static DaysOfWeek fromEnglishName(String name) {
+
+        for (DaysOfWeek day : values()) {
+            if (name.equalsIgnoreCase(day.getEnglishName())) {
+                return day;
             }
         }
         return null;
     }
 
-    public static DaysOfWeek fromPolishName(String name){
-        for (DaysOfWeek day : values() ) {
-            if(name.equalsIgnoreCase(day.getPolishName())){
-                System.out.println(day);
+    public static DaysOfWeek fromPolishName(String name) {
+        for (DaysOfWeek day : values()) {
+            if (name.equalsIgnoreCase(day.getPolishName())) {
+                return day;
             }
         }
         return null;

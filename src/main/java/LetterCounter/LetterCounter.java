@@ -1,21 +1,22 @@
 package LetterCounter;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class LetterCounter {
     public static void main(String[] args) {
 
         String testText = "This is a test text";
+        System.out.println(charCounter(testText));
+    }
 
-        Map<Integer, Character> letters = new TreeMap<>();
+    public static Map charCounter(String text) {
 
-        for (int i = 0; i < testText.length(); i++) {
-            letters.put(i, testText.charAt(i));
+        Map<Character, Integer> chars = new LinkedHashMap<>();
+
+        for (int i = 0; i < text.length()-1; i++) {
+            char character = text.charAt(i);
+            chars.put(character, i);
         }
-
-        System.out.println(letters.entrySet());
+        return chars;
     }
 }
