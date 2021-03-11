@@ -2,67 +2,65 @@ package RegApp;
 
 import java.io.*;
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.Map;
+import java.util.Scanner;
+
+import static RegApp.Registration.*;
 
 public class RegAppDemo {
 
-    final static String filePath ="E:/users.txt";
-    static HashMap<String, Integer> users = new HashMap<>();
 
     public static void main(String[] args) {
-        addUser("tomek", 30);
-        addUser("asia", 29);
-        deleteUser("asia");
-    }
+        Scanner scanner = new Scanner(System.in);
+        String str;
+        String name;
+        int age = 0;
+        boolean isNumber = false;
+        boolean stop = false;
 
-    public static void addUser(String name, Integer age){
-        users.put(name, age);
+        while (!stop) {
+            System.out.println("Please, choose a command to commit: register or delete");
+            str = scanner.nextLine();
 
-        File file = new File(filePath);
-        BufferedWriter bf = null;
+            if (str.contains("reg")) {
 
-        try{
-            bf = new BufferedWriter(new FileWriter(file));
+                System.out.println("Please, enter the name below: ");
+                name = scanner.nextLine();
 
-            for (Map.Entry<String, Integer> entry : users.entrySet()){
-                bf.write(entry.getKey() + " : " + entry.getValue());
-                bf.newLine();
-            }
-            bf.flush();
-        }catch (IOException e){
-            System.out.println(e.getMessage());
-        }finally {
-            try {
-                bf.close();
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
-            }
-        }
-    }
+                do {
+                    try {
+                        System.out.println("Please, enter the age: ");
+                        age = scanner.nextInt();
+                        isNumber = true;
+                    } catch (InputMismatchException e) {
+                        System.out.println("That not a nubmer!");
+                        scanner.next();
+                    }
+                } while (!isNumber);
+                addUser(name, age);
+                System.out.println("Ok! registration successful!");
+                System.out.println("Would you like to continue?(yes/no)");
+                String answer = scanner.next();
+                if (answer.equalsIgnoreCase("no")) {
+                    stop = true;
+                }
+            } else if (str.contains("del")) {
 
-    public static void deleteUser(String user){
-        users.remove(user);
-
-        File file = new File(filePath);
-        BufferedWriter bf = null;
-
-        try{
-            bf = new BufferedWriter(new FileWriter(file));
-
-            for (Map.Entry<String, Integer> entry : users.entrySet()){
-                bf.write(entry.getKey() + " : " + entry.getValue());
-                bf.newLine();
-            }
-            bf.flush();
-        }catch (IOException e){
-            System.out.println(e.getMessage());
-        }finally {
-            try {
-                bf.close();
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
+                    System.out.println("Enter the name of person you want to delete: ");
+                    name = scanner.nextLine();
+                while(!users.containsKey(name)) {
+                    System.out.println("Non such user exists! Please try again: ");
+                    name = scanner.nextLine();
+                }
+                    deleteUser(name);
+                    System.out.println("User has been deleted successfully");
+                    System.out.println("Would you like to continue?(yes/no)");
+                    String answer = scanner.next();
+                    if (answer.equalsIgnoreCase("no")) {
+                        stop = true;
+                    }
             }
         }
-
     }
 }
